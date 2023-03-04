@@ -1,10 +1,12 @@
 ''''''
 import os
 
+from bot.core import Bot
+from config import BotConfig
+
 
 try:
     import hikari
-    import crescent
 
 except ImportError:
     os.system('pip install -r requirements.txt')
@@ -21,7 +23,9 @@ def main() -> None:
         except ImportError:
             pass
 
-    pass
+    bot = Bot(BotConfig.TOKEN)
+
+    bot.run()
 
 
 if __name__ == "__main__":

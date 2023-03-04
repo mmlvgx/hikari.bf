@@ -1,4 +1,5 @@
 hikari[speedups]
 
 hikari == 2.0.0
-hikari-crescent == 0.6.0
+
+python-dotenv == 1.0.0
