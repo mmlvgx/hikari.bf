@@ -10,7 +10,7 @@ from config import BotConfig
 try:
     import hikari
 
-except ImportError:
+except ModuleNotFoundError:
     # Install dependencies if not
     os.system('pip install -r requirements.txt')
 

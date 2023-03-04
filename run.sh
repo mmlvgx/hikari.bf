@@ -1,1 +1,1 @@
-python3 -OO setup.py
+python3 -B -OO main.py
