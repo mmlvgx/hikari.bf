@@ -14,6 +14,6 @@ To add commands just add files to the `plugins` folder. The name of a **Brainfuc
 If you use a UNIX-like system, you will get additional performance benefits from using a library called uvloop. This replaces the default asyncio event loop with one that uses libuv internally.\
 `pip install uvloop`
 # Support
-Mine Discord is `лось#2600`
+My discord is `лось#2600`
 # Contributing
 Create an issue for your feature
