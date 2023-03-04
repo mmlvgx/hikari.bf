@@ -1,6 +1,6 @@
 # hikari.bf
 [Discord](https://discord.com/) bot template written in Python3 using [Hikari](https://github.com/hikari-py/hikari) framework with **Brainfuck** commands.
-## Use
+## Using
 1. Clone the repository
 2. Create a .env file
 ```
