@@ -9,7 +9,7 @@ prefix = 'YOUR BOT PREFIX'
 ```
 3. Launch run.sh or run.bat
 The necessary dependencies will be automatically installed\
-To add commands just add files to the `plugins` folder. The name of a **Brainfuck** like file is the name of a slash command. So that for example `test.bf` will be `!test`
+To add commands just add files to the `plugins` folder. The name of a **Brainfuck** like file is the name of command. So that for example `test.bf` will be `!test`
 ## Speed up
 If you use a UNIX-like system, you will get additional performance benefits from using a library called uvloop. This replaces the default asyncio event loop with one that uses libuv internally.\
 `pip install uvloop`
