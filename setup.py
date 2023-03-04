@@ -23,7 +23,7 @@ def main() -> None:
         except ImportError:
             pass
 
-    bot = Bot(BotConfig.TOKEN)
+    bot = Bot(BotConfig.TOKEN, BotConfig.PREFIX)
 
     bot.run()
 

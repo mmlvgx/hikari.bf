@@ -3,6 +3,9 @@
 '''
 import hikari
 
+from bot import __version__
+from .helpers import brainfuck
+
 
 class Bot(hikari.GatewayBot):
     '''
@@ -11,15 +14,18 @@ class Bot(hikari.GatewayBot):
 
     def __init__(
             self,
-            token: str
+            token: str,
+            prefix: str
     ) -> None:
         '''
             pass
         '''
-        intents = hikari.Intents.GUILD_MESSAGES
+        self.PREFIX = prefix
+        self.__TOKEN = token
+        intents = hikari.Intents.ALL
         super().__init__(
-            token=token,
-            intents=intents
+            token=self.__TOKEN,
+            intents=intents,
         )
 
     def setup(self) -> None:
@@ -38,7 +44,7 @@ class Bot(hikari.GatewayBot):
         self.setup()
         super().run(
             activity=hikari.Activity(
-                name='https://github.com/mmlvgx/hikari.bf',
+                name=f'hikari.bf {__version__}',
                 type=hikari.ActivityType.LISTENING
             ),
             status=hikari.Status.IDLE,
@@ -48,4 +54,6 @@ class Bot(hikari.GatewayBot):
         '''
             pass
         '''
-        print(event.author)
+        if event.content.startswith(self.PREFIX):
+            print(event.author)
+            brainfuck.main()
