@@ -18,3 +18,5 @@ If you use a UNIX-like system, you will get additional performance benefits from
 My discord is `лось#2600`
 # Contributing
 Create an issue for your feature
+
+![](https://cdn.discordapp.com/attachments/913529716521173003/1081552792465985556/hippo.gif)
