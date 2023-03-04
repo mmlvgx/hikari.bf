@@ -1,10 +1,12 @@
 '''
     pass
 '''
+import os
+
 import hikari
+import brainfuck
 
 from bot import __version__
-from .helpers import brainfuck
 
 
 class Bot(hikari.GatewayBot):
@@ -20,7 +22,7 @@ class Bot(hikari.GatewayBot):
         '''
             pass
         '''
-        self.PREFIX = prefix
+        self.__PREFIX = prefix
         self.__TOKEN = token
         intents = hikari.Intents.ALL
         super().__init__(
@@ -54,6 +56,20 @@ class Bot(hikari.GatewayBot):
         '''
             pass
         '''
-        if event.content.startswith(self.PREFIX):
-            print(event.author)
-            brainfuck.main()
+        path = os.getcwd()
+        # If message content starts with prefix
+        if event.content.startswith(self.__PREFIX):
+            # Check each file from the directory with plugins
+            for file__ in os.listdir(f'{path}/bot/plugins/'):
+                # Ignore file if not ends with brainfuck format
+                if not file__.endswith('.bf'):
+                    return
+
+                _format = self.__PREFIX + file__[:-3]
+
+                if event.content.startswith(_format):
+                    with open(f'{path}/bot/plugins/' + file__, 'r') as file_:
+                        code = str(file_.read().encode('utf-8'))
+                        content = brainfuck.evaluate(code)
+
+                        await event.message.respond(content, reply=True)
